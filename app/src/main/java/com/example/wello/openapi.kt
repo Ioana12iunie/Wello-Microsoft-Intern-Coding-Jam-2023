@@ -10,7 +10,13 @@ fun main() {
     val exerciseAmount = "30 minutes"
     val meditateAmount = "15 minutes"
 
-    val prompt = "I want to sleep $sleepAmount, exercise for $exerciseAmount, and meditate for $meditateAmount. Now, Provide me with a plan to do so. "
+    val prompt = "Write a schedule for my day that must meet the following requirements. \n" +
+            "(1) Includes $sleepAmount contiguous hours of sleep. \n" +
+            "(2) Includes a contiguous $exerciseAmount of exercise. \n" +
+            "(3) Includes $meditateAmount of mindful time.\n" +
+            "(4) Includes time for 2-3 activities/tasks. \n" +
+            "(5) Includes 5 to 10 minute transition breaks between activities. \n" +
+            "The format for the schedule should look like: start time - end time: activity name"
 
     val maxTokens = 50
     val apiKey = "<your-api-key>"
