@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.wello.R
 import com.example.wello.databinding.FragmentHomeBinding
+import com.example.wello.ui.goals.GoalsFragment
+import com.example.wello.ui.planner.PlannerFragment
 
 class HomeFragment : Fragment() {
 
@@ -28,11 +31,27 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
+        binding.buttonPlan.setOnClickListener {
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.nav_host_fragment_content_main, PlannerFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+//        binding.buttonToday.setOnClickListener {
+//            val transaction = parentFragmentManager.beginTransaction()
+//            transaction.replace(R.id.nav_host_fragment_content_main, EmotionsFragment())
+//            transaction.addToBackStack(null)
+//            transaction.commit()
 //        }
-        
+
+        binding.buttonGoals.setOnClickListener {
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.nav_host_fragment_content_main, GoalsFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
         return root
     }
 
