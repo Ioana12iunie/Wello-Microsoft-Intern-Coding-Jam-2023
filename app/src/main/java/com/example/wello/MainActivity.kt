@@ -12,15 +12,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.wello.databinding.ActivityMainBinding
 import com.example.wello.ui.goals.GoalsFragment
 import com.example.wello.ui.home.HomeFragment
 import com.example.wello.ui.planner.PlannerFragment
-
 import com.google.firebase.auth.FirebaseAuth
-
+import androidx.core.content.ContextCompat
+import android.content.Context
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -98,5 +99,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun logout() {
         FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 }

@@ -65,11 +65,11 @@ class LoginTabFragment : Fragment() {
             }
         }
 
-        loginButton.setOnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
-        }
+//        loginButton.setOnClickListener {
+//            val intent = Intent(activity, MainActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            startActivity(intent)
+//        }
 
         binding.logPasswordInput.doOnTextChanged {
                 text, start, before, count ->
@@ -98,7 +98,7 @@ class LoginTabFragment : Fragment() {
             }
         }
 
-        binding.loginButton.setOnClickListener {
+        loginButton.setOnClickListener {
             val txtEmail = emailtext.text.toString()
             val txtPassword = passwordtext.text.toString()
 

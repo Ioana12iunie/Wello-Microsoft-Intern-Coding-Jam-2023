@@ -12,9 +12,6 @@ import com.example.wello.databinding.FragmentGoalsBinding
 class GoalsFragment : Fragment() {
 
     private var _binding: FragmentGoalsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
