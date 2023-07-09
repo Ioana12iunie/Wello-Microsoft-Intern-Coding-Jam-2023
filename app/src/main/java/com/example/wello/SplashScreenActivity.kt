@@ -10,9 +10,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.google.firebase.auth.FirebaseAuth
 
 
 class SplashScreenActivity : Activity() {
+    private lateinit var auth: FirebaseAuth
     private var image: ImageView? = null
     private var animation: AnimatedVectorDrawable? = null
 
@@ -20,7 +22,16 @@ class SplashScreenActivity : Activity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
 
-        val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+        val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
+
+        auth = FirebaseAuth.getInstance()
+
+//        val intent = if (auth.currentUser != null) {
+//            Intent(this@SplashScreenActivity, MainActivity::class.java)
+//        } else {
+//            Intent(this@SplashScreenActivity, LoginActivity::class.java)
+//        }
+
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
