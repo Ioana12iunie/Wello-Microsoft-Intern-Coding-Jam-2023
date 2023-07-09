@@ -58,6 +58,8 @@ class PlannerFragment : Fragment() {
 
         binding.button2.setOnClickListener {
             Toast.makeText(context, "Sleep: " + sleepAmount.toString() + " Exercise: " + exerciseAmount.toString() + " Meditate: " + meditateAmount.toString(), Toast.LENGTH_LONG).show()
+            // we will need to prompt gpt4 with the values of the sliders
+            
         }
         return root
     }
