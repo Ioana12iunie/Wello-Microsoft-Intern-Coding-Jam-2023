@@ -42,7 +42,7 @@ class LoginTabFragment : Fragment() {
         email = view.findViewById(R.id.log_email)
         emailtext = view.findViewById(R.id.log_email_input)
         password = view.findViewById(R.id.log_password)
-        passwordtext = view.findViewById(R.id.log_password)
+//        passwordtext = view.findViewById(R.id.log_password)
         loginButton = view.findViewById(R.id.loginButton)
         forgotPassword = view.findViewById(R.id.forgotPassword)
         mAuth = FirebaseAuth.getInstance()
@@ -62,43 +62,49 @@ class LoginTabFragment : Fragment() {
             }
         }
 
-        passwordtext.doOnTextChanged {
-                text, start, before, count ->
-            if (text!!.length >= 20) {
-                password.error = "Character limit reached!"
-            } else if (text.length < 20) {
-                if (text.length < 8) {
-                    password.error = "Must contain at least 8 characters"
-                }
-                else if (!text.matches(".*[A-Z].*".toRegex())) {
-                    password.error = "Must contain at least one uppercase character"
-                }
-                else if (!text.matches(".*[a-z].*".toRegex())) {
-                    password.error = "Must contain at least one lowercase character"
-                }
-                else if (!text.matches(".*[@#\$%^&+=-].*".toRegex())) {
-                    password.error = "Must contain at least one special character : @#\$%^&+=-"
-                }
-                else if (!text.matches(".*[0-9].*".toRegex())) {
-                    password.error = "Must contain at least one digit"
-                }
-                else
-                {
-                    password.error = null
-                }
-            }
-        }
-
         loginButton.setOnClickListener {
-            val txtEmail = emailtext.text.toString()
-            val txtPassword = passwordtext.text.toString()
-
-            if (txtEmail.isEmpty() || txtPassword.isEmpty()) {
-                Toast.makeText(context, "Empty credentials!", Toast.LENGTH_SHORT).show()
-            } else {
-                loginUser(txtEmail, txtPassword)
-            }
+            val intent = Intent(activity, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
+
+//        passwordtext.doOnTextChanged {
+//                text, start, before, count ->
+//            if (text!!.length >= 20) {
+//                password.error = "Character limit reached!"
+//            } else if (text.length < 20) {
+//                if (text.length < 8) {
+//                    password.error = "Must contain at least 8 characters"
+//                }
+//                else if (!text.matches(".*[A-Z].*".toRegex())) {
+//                    password.error = "Must contain at least one uppercase character"
+//                }
+//                else if (!text.matches(".*[a-z].*".toRegex())) {
+//                    password.error = "Must contain at least one lowercase character"
+//                }
+//                else if (!text.matches(".*[@#\$%^&+=-].*".toRegex())) {
+//                    password.error = "Must contain at least one special character : @#\$%^&+=-"
+//                }
+//                else if (!text.matches(".*[0-9].*".toRegex())) {
+//                    password.error = "Must contain at least one digit"
+//                }
+//                else
+//                {
+//                    password.error = null
+//                }
+//            }
+//        }
+//
+//        loginButton.setOnClickListener {
+//            val txtEmail = emailtext.text.toString()
+//            val txtPassword = passwordtext.text.toString()
+//
+//            if (txtEmail.isEmpty() || txtPassword.isEmpty()) {
+//                Toast.makeText(context, "Empty credentials!", Toast.LENGTH_SHORT).show()
+//            } else {
+//                loginUser(txtEmail, txtPassword)
+//            }
+//        }
 
         return view
     }

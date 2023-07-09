@@ -21,9 +21,9 @@
         android:id="@+id/welcomeText"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32sp"
+        android:layout_marginBottom="50dp"
         android:text="Welcome to"
         android:fontFamily="@font/lobster"
         android:textColor="@color/pink_pastel"
@@ -75,7 +75,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabRippleColor="@color/white"
-            app:tabTextColor="@color/lime_pastel" />
+            app:tabTextColor="@color/black" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerLogin"
