@@ -13,9 +13,13 @@
             android:icon="@drawable/ic_menu_planner"
             android:title="Planner" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_calendar"
-            android:title="Calendar" />
+            android:id="@+id/nav_goals"
+            android:icon="@drawable/ic_menu_goals"
+            android:title="My Goals" />
+        <item
+            android:id="@+id/nav_today"
+            android:icon="@drawable/ic_menu_checklist"
+            android:title="Today" />
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_menu_help"

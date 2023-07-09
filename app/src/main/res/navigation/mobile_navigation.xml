@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_planner" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.wello.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_goals"
+        android:name="com.example.wello.ui.goals.GoalsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_goals" />
 </navigation>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.planner.PlannerFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wello_background"
+        android:contentDescription="Planner Fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/topPlanner"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/top_fragment_item"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="251dp"
+                    android:layout_height="158dp"
+                    android:contentDescription="@string/app_name"
+                    android:foregroundGravity="center_vertical|center_horizontal"
+                    android:src="@drawable/splash_screen_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/topPlanner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.085" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/rectangle_rounded"
+                    android:baselineAligned="true"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.344"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout55"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_rounded"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageGoals"
+                            android:layout_width="match_parent"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="2dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_menu_goals" />
+
+                        <TextView
+                            android:id="@+id/textImage55"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="8dp"
+                            android:gravity="center"
+                            android:text="My goals"
+                            android:textSize="17sp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rectangle_rounded">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Sleep"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/goal1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/lobster"
+                            android:gravity="center"
+                            android:text="TODO"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/sliderSleep"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
