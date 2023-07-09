@@ -11,7 +11,7 @@
         android:id="@+id/imageSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/splash_screen_animated_vector"
+        android:src="@drawable/splash_screen_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="Splash Screen"
         android:visibility="invisible"
