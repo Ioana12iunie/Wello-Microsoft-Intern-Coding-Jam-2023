@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wello.databinding.FragmentPlannerBinding
+import com.google.android.material.slider.Slider
 
 class PlannerFragment : Fragment() {
 
@@ -26,6 +27,26 @@ class PlannerFragment : Fragment() {
         _binding = FragmentPlannerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        binding.sliderSleep.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {
+            }
+
+            override fun onStopTrackingTouch(slider: Slider) {
+            }
+        })
+
+        binding.sliderSleep.addOnChangeListener { slider, value, fromUser ->
+            // we will need to update a variable we'll later use to prompt gpt4
+        }
+
+        binding.sliderExercise.addOnChangeListener { slider, value, fromUser ->
+            // we will need to update a variable we'll later use to prompt gpt4
+        }
+
+        binding.sliderMeditate.addOnChangeListener { slider, value, fromUser ->
+            // we will need to update a variable we'll later use to prompt gpt4
+        }
         return root
     }
 

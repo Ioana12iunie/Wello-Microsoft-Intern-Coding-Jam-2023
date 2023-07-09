@@ -9,12 +9,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/wello_background"
+        android:contentDescription="Planner Fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/wello_background"
-        android:contentDescription="Planner Fragment">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,35 +70,36 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView5"
                     app:layout_constraintVertical_bias="0.0">
 
-                <LinearLayout
-                    android:id="@+id/linearLayout55"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rectangle_rounded"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView52"
+                    <LinearLayout
+                        android:id="@+id/linearLayout55"
                         android:layout_width="match_parent"
-                        android:layout_height="75dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="2dp"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/ic_planner" />
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_rounded"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textImage55"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center"
-                        android:text="Plan your day"
-                        android:textColor="@color/teal_200" />
+                        <ImageView
+                            android:id="@+id/imageView52"
+                            android:layout_width="match_parent"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="2dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_menu_planner" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/textImage55"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="8dp"
+                            android:gravity="center"
+                            android:text="Plan your day"
+                            android:textSize="17sp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -132,30 +133,160 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
-                            android:layout_marginBottom="29dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/lobster"
                             android:gravity="center"
-                            android:text="How much sleep would you like to get?"
-                            android:textColor="@color/teal_200"
+                            android:text="How many hours of sleep would you like to get?"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
-                            app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                            app:layout_constraintBottom_toTopOf="@+id/sliderSleep"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <SeekBar
-                            android:id="@+id/seekBar"
-                            android:layout_width="279dp"
-                            android:layout_height="13dp"
-                            android:layout_marginStart="55dp"
-                            android:layout_marginEnd="45dp"
-                            android:layout_marginBottom="56dp"
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderSleep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="32dp"
+                            android:contentDescription="sleepSlider"
+                            android:stepSize="1.0"
+                            android:valueFrom="0.0"
+                            android:valueTo="24.0"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/sleep"
-                            android:thumbTint="@color/purple_700"
-                            android:progressTint="@color/teal_200"
-                            android:progress="0"/>
+                            app:layout_constraintTop_toBottomOf="@id/sleep"
+                            app:trackColor="@color/pink_pastel"
+                            app:thumbColor="@color/pink_pastel"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rectangle_rounded">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Exercise"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/exercise"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/lobster"
+                            android:gravity="center"
+                            android:text="How many minutes for exercising today?"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/sliderExercise"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderExercise"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="32dp"
+                            android:contentDescription="sleepSlider"
+                            android:stepSize="5.0"
+                            android:valueFrom="0.0"
+                            android:valueTo="120.0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/exercise"
+                            app:trackColor="@color/blue_pastel"
+                            app:thumbColor="@color/blue_pastel"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rectangle_rounded">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Meditate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/meditate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/lobster"
+                            android:gravity="center"
+                            android:text="Would you like to meditate today for a few minutes?"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/sliderMeditate"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderMeditate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="32dp"
+                            android:contentDescription="sleepMeditate"
+                            android:stepSize="5.0"
+                            android:valueFrom="0.0"
+                            android:valueTo="120.0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/meditate"
+                            app:trackColor="@color/lime_pastel"
+                            app:thumbColor="@color/lime_pastel"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
