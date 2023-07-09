@@ -1,60 +1,130 @@
 package com.example.wello.ui.register
 
+import com.example.wello.MainActivity
+import com.example.wello.R
+import com.example.wello.databinding.FragmentLoginTabBinding
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.wello.R
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
+import com.example.wello.databinding.FragmentRegisterTabBinding
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterTabFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegisterTabFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var email : TextInputLayout
+    private lateinit var password : TextInputLayout
+    private lateinit var emailtext: TextInputEditText
+    private lateinit var passwordtext: TextInputEditText
+    private lateinit var loginButton: Button
+    private lateinit var forgotPassword : TextView
+    private var _binding: FragmentRegisterTabBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_tab, container, false)
+        val view = inflater.inflate(R.layout.fragment_register_tab, container, false)
+        _binding = FragmentRegisterTabBinding.inflate(inflater, container, false)
+
+//
+//        email = view.findViewById(R.id.log_email)
+//        emailtext = view.findViewById(R.id.log_email_input)
+//        password = view.findViewById(R.id.log_password)
+//        passwordtext = view.findViewById(R.id.log_password_input)
+//        loginButton = view.findViewById(R.id.loginButton)
+//        forgotPassword = view.findViewById(R.id.forgotPassword)
+//        mAuth = FirebaseAuth.getInstance()
+//
+//        emailtext.doOnTextChanged {
+//                text, start, before, count ->
+//            if (text!!.length >= 30) {
+//                email.error ="Character limit reached!"
+//            } else if (text.length < 30) {
+//                val regexPattern = "^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\\.[a-zA-Z]{2,}$".toRegex()
+//                if (regexPattern.matches(emailtext.text.toString())) {
+//                    email.error = null
+//                }
+//                else {
+//                    email.error ="Invalid email adress!"
+//                }
+//            }
+//        }
+//
+//        loginButton.setOnClickListener {
+//            val intent = Intent(activity, MainActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            startActivity(intent)
+//        }
+//
+//        binding.logPasswordInput.doOnTextChanged {
+//                text, start, before, count ->
+//            if (text!!.length >= 20) {
+//                binding.logPassword.error = "Character limit reached!"
+//            } else if (text.length < 20) {
+//                if (text.length < 8) {
+//                    binding.logPassword.error = "Must contain at least 8 characters"
+//                }
+//                else if (!text.matches(".*[A-Z].*".toRegex())) {
+//                    binding.logPassword.error = "Must contain at least one uppercase character"
+//                }
+//                else if (!text.matches(".*[a-z].*".toRegex())) {
+//                    binding.logPassword.error = "Must contain at least one lowercase character"
+//                }
+//                else if (!text.matches(".*[@#\$%^&+=-].*".toRegex())) {
+//                    binding.logPassword.error = "Must contain at least one special character : @#\$%^&+=-"
+//                }
+//                else if (!text.matches(".*[0-9].*".toRegex())) {
+//                    binding.logPassword.error = "Must contain at least one digit"
+//                }
+//                else
+//                {
+//                    binding.logPassword.error = null
+//                }
+//            }
+//        }
+//
+//        binding.loginButton.setOnClickListener {
+//            val txtEmail = emailtext.text.toString()
+//            val txtPassword = passwordtext.text.toString()
+//
+//            if (txtEmail.isEmpty() || txtPassword.isEmpty()) {
+//                Toast.makeText(context, "Empty credentials!", Toast.LENGTH_SHORT).show()
+//            } else {
+//                loginUser(txtEmail, txtPassword)
+//            }
+//        }
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterTabFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterTabFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    private fun loginUser(email: String, password: String) {
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(activity, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
                 }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "Please try again later", Toast.LENGTH_SHORT).show()
             }
     }
 }

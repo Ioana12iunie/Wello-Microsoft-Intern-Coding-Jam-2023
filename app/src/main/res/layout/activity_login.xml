@@ -17,35 +17,35 @@
         app:layout_constraintGuide_percent="0.2"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32sp"
-        android:layout_marginBottom="50dp"
-        android:text="Welcome to"
-        android:fontFamily="@font/lobster"
-        android:textColor="@color/pink_pastel"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
+<!--    <TextView-->
+<!--        android:id="@+id/welcomeText"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="32sp"-->
+<!--        android:layout_marginBottom="50dp"-->
+<!--        android:text="Welcome to"-->
+<!--        android:fontFamily="@font/lobster"-->
+<!--        android:textColor="@color/pink_pastel"-->
+<!--        android:textSize="34sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/guideline"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/imageView"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.54" />-->
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="Image TODO"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/welcomeText"
+
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.515"
         app:srcCompat="@drawable/splash_screen_icon" />
@@ -66,9 +66,9 @@
             style="@style/CustomTabLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
             android:background="@drawable/rectangle_rounded"
             android:contentDescription="TODO"
-            android:fontFamily="@font/caprisimo"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/viewPagerLogin"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +81,7 @@
             android:id="@+id/viewPagerLogin"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"

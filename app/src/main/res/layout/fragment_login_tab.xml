@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ui.login.LoginTabFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/log_email"
@@ -50,7 +51,7 @@
         android:layout_marginEnd="32dp"
         android:hint="Password"
         android:maxLines="1"
-        android:textColorHint="@color/blue_pastel"
+        android:textColorHint="@color/black"
         app:boxStrokeColor="@color/lime_pastel"
         app:counterEnabled="true"
         app:counterMaxLength="20"
@@ -69,7 +70,7 @@
         app:startIconTint="@color/blue_pastel">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_password_input"
+            android:id="@+id/log_password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -85,7 +86,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rectangle_rounded"
-        android:fontFamily="@font/lobster"
         android:text="LOGIN"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

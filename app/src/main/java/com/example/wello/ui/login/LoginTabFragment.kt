@@ -25,7 +25,8 @@ class LoginTabFragment : Fragment() {
     private lateinit var passwordtext: TextInputEditText
     private lateinit var loginButton: Button
     private lateinit var forgotPassword : TextView
-    private lateinit var binding: FragmentLoginTabBinding
+    private var _binding: FragmentLoginTabBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -38,11 +39,13 @@ class LoginTabFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_login_tab, container, false)
+        _binding = FragmentLoginTabBinding.inflate(inflater, container, false)
+
 
         email = view.findViewById(R.id.log_email)
         emailtext = view.findViewById(R.id.log_email_input)
         password = view.findViewById(R.id.log_password)
-//        passwordtext = view.findViewById(R.id.log_password)
+        passwordtext = view.findViewById(R.id.log_password_input)
         loginButton = view.findViewById(R.id.loginButton)
         forgotPassword = view.findViewById(R.id.forgotPassword)
         mAuth = FirebaseAuth.getInstance()
@@ -68,43 +71,43 @@ class LoginTabFragment : Fragment() {
             startActivity(intent)
         }
 
-//        passwordtext.doOnTextChanged {
-//                text, start, before, count ->
-//            if (text!!.length >= 20) {
-//                password.error = "Character limit reached!"
-//            } else if (text.length < 20) {
-//                if (text.length < 8) {
-//                    password.error = "Must contain at least 8 characters"
-//                }
-//                else if (!text.matches(".*[A-Z].*".toRegex())) {
-//                    password.error = "Must contain at least one uppercase character"
-//                }
-//                else if (!text.matches(".*[a-z].*".toRegex())) {
-//                    password.error = "Must contain at least one lowercase character"
-//                }
-//                else if (!text.matches(".*[@#\$%^&+=-].*".toRegex())) {
-//                    password.error = "Must contain at least one special character : @#\$%^&+=-"
-//                }
-//                else if (!text.matches(".*[0-9].*".toRegex())) {
-//                    password.error = "Must contain at least one digit"
-//                }
-//                else
-//                {
-//                    password.error = null
-//                }
-//            }
-//        }
-//
-//        loginButton.setOnClickListener {
-//            val txtEmail = emailtext.text.toString()
-//            val txtPassword = passwordtext.text.toString()
-//
-//            if (txtEmail.isEmpty() || txtPassword.isEmpty()) {
-//                Toast.makeText(context, "Empty credentials!", Toast.LENGTH_SHORT).show()
-//            } else {
-//                loginUser(txtEmail, txtPassword)
-//            }
-//        }
+        binding.logPasswordInput.doOnTextChanged {
+                text, start, before, count ->
+            if (text!!.length >= 20) {
+                binding.logPassword.error = "Character limit reached!"
+            } else if (text.length < 20) {
+                if (text.length < 8) {
+                    binding.logPassword.error = "Must contain at least 8 characters"
+                }
+                else if (!text.matches(".*[A-Z].*".toRegex())) {
+                    binding.logPassword.error = "Must contain at least one uppercase character"
+                }
+                else if (!text.matches(".*[a-z].*".toRegex())) {
+                    binding.logPassword.error = "Must contain at least one lowercase character"
+                }
+                else if (!text.matches(".*[@#\$%^&+=-].*".toRegex())) {
+                    binding.logPassword.error = "Must contain at least one special character : @#\$%^&+=-"
+                }
+                else if (!text.matches(".*[0-9].*".toRegex())) {
+                    binding.logPassword.error = "Must contain at least one digit"
+                }
+                else
+                {
+                    binding.logPassword.error = null
+                }
+            }
+        }
+
+        binding.loginButton.setOnClickListener {
+            val txtEmail = emailtext.text.toString()
+            val txtPassword = passwordtext.text.toString()
+
+            if (txtEmail.isEmpty() || txtPassword.isEmpty()) {
+                Toast.makeText(context, "Empty credentials!", Toast.LENGTH_SHORT).show()
+            } else {
+                loginUser(txtEmail, txtPassword)
+            }
+        }
 
         return view
     }
