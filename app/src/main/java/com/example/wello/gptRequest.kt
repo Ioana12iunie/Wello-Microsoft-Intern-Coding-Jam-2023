@@ -7,7 +7,11 @@ import kotlinx.serialization.json.*
 val openAI = OpenAI(apiKey)
 val id = ModelId("gpt-4")
 val model: Model = openAI.model(id)
-
+/*
+* This function creates a request string based on the information passed in
+* (from the sliders). We then use this request string in another request function
+* to make the actual API call.
+* */
 fun createRequest(sleepAmount, exerciseAmount, meditateAmount) {
     val text = "Write a schedule for my day that must meet the following requirements. \n" +
             "(1) Includes " + sleepAmount + " contiguous hours of sleep. \n" +
@@ -25,10 +29,16 @@ fun createRequest(sleepAmount, exerciseAmount, meditateAmount) {
     )
     return completionRequest
 }
-
+/*
+* This function makes the request to the API when given a request string containing
+* all the request parameters. It returns the plan returned by the language model.
+* */
 fun requestOpenAI(completionRequest) {
     val completion: TextCompletion = openAI.completion(completionRequest)
     val jsonObject: JSONObject = new JSONObject (completion)
     val plan = jsonObject.getString("choices")
+/* NOTE: this may not be the entirely correct field of the response to use;
+ * we may need to look at the returned JSON and pick out the right field
+ */
     return plan
 }
