@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508641445860",
+    "project_id": "wello-41c7a",
+    "storage_bucket": "wello-41c7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508641445860:android:e8a0ca5caf85564ed369f1",
+        "android_client_info": {
+          "package_name": "com.example.wello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508641445860-o8riinl7mcom9tac5878vls8kco954cp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi0fFsVMCjMmj3E9ZxOHiq6qfhXsr233I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508641445860-o8riinl7mcom9tac5878vls8kco954cp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
