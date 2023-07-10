@@ -4,11 +4,9 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 
 fun main() {
-
-    // TODO: replace these with the values from the sliders
-    val sleepAmount = "8 hours"
-    val exerciseAmount = "30 minutes"
-    val meditateAmount = "15 minutes"
+    val sleepAmount = retrieveSleepAmount()
+    val exerciseAmount = retrieveExerciseAmount()
+    val meditateAmount = retrieveMeditateAmount()
 
     val prompt = "Write a schedule for my day that must meet the following requirements. \n" +
             "(1) Includes $sleepAmount contiguous hours of sleep. \n" +
@@ -44,7 +42,27 @@ fun main() {
     if (response.isSuccessful && responseBody != null) {
         val completion = responseBody.split("\"text\":\"")[1].split("\"")[0]
         println("Generated completion: $completion")
+        return completion
     } else {
         println("Failed to generate completion. Error: ${response.code} - ${response.message}")
     }
+}
+
+private fun retrieveSleepAmount(): String {
+    val binding: FragmentPlannerBinding = requireBinding()
+    return binding.sliderSleep.value.toInt().toString()
+}
+
+
+
+private fun retrieveExerciseAmount(): String {
+    val binding: FragmentPlannerBinding = requireBinding()
+    return binding.sliderExercise.value.toInt().toString()
+}
+
+
+
+private fun retrieveMeditateAmount(): String {
+    val binding: FragmentPlannerBinding = requireBinding()
+    return binding.sliderMeditate.value.toInt().toString()
 }
