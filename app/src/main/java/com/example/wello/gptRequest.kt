@@ -4,7 +4,7 @@ import com.aallam.openai.client.OpenAI
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-val openAI = OpenAI(apiKey)
+val openAI = OpenAI("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")
 val id = ModelId("gpt-4")
 val model: Model = openAI.model(id)
 /*

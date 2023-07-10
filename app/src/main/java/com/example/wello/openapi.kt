@@ -19,7 +19,7 @@ fun main() {
             "The format for the schedule should look like: start time - end time: activity name"
 
     val maxTokens = 50
-    val apiKey = "<your-api-key>"
+    val apiKey = "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"
     val apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions"
 
     val client = OkHttpClient()
